@@ -10,3 +10,15 @@ target/
 
 # secrets & local env  (NEVER commit)
 .env
+.env.local
+*.env
+!.env.example
+**/.env
+!**/.env.example
+
+# wallets / keypairs
+*.json.key
+*-keypair.json
+id.json
+wallet.json
+dev-wallet.json
