@@ -18,3 +18,11 @@ PDA and read it from any RPC node.
 | Layer | Tech |
 |-------|------|
 | On-chain | Native Rust Solana program (no Anchor), SHA-256 PDA handles |
+| API | NestJS 11, indexer, resolver, presence, reputation, RPC proxy |
+| Web | Vanilla JS + Vite SPA, `@solana/web3.js`, wallet adapters |
+| Docs | Vite + Tailwind static site |
+| Infra | Docker Compose, nginx edge (TLS), Let's Encrypt, Postgres |
+
+## Layout
+
+```
