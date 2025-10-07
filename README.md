@@ -34,3 +34,11 @@ neurosync/
 ├─ scripts/    Admin CLI (init config)
 ├─ nginx/      Edge proxy configs (bootstrap + full TLS)
 ├─ docker-compose.yml
+└─ init-ssl.sh
+```
+
+## Local development
+
+```bash
+cp .env.example .env          # fill SOLANA_RPC at minimum
+docker compose -f docker-compose.dev.yml up -d   # db + api on :4000
