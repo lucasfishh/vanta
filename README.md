@@ -26,3 +26,11 @@ PDA and read it from any RPC node.
 ## Layout
 
 ```
+neurosync/
+├─ web/        Main SPA (landing, explore, agent, register, activity)
+├─ docs/       Documentation site
+├─ api/        NestJS indexer + resolver + heartbeat + reputation + rpc proxy
+├─ program/    Solana program (Rust), deploy this, then set PROGRAM_ID
+├─ scripts/    Admin CLI (init config)
+├─ nginx/      Edge proxy configs (bootstrap + full TLS)
+├─ docker-compose.yml
