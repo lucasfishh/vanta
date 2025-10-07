@@ -42,3 +42,11 @@ neurosync/
 ```bash
 cp .env.example .env          # fill SOLANA_RPC at minimum
 docker compose -f docker-compose.dev.yml up -d   # db + api on :4000
+cd web  && npm install && npm run dev            # :3000
+cd docs && npm install && npm run dev            # :5175
+```
+
+## Deploy
+
+```bash
+# on the server, in the project root
