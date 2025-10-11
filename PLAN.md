@@ -54,3 +54,11 @@ curl  https://neuro-sync.app/api/health
 DNS: `neuro-sync.app`, `www`, and `docs` all A-record to the server.
 
 ## 5. Going to mainnet (program)
+
+```bash
+cd program && cargo build-sbf
+solana program deploy target/deploy/neurosync_program.so   # note PROGRAM_ID
+cd ../scripts && npm install
+node admin.mjs init-config --program <PROGRAM_ID> --treasury <PUBKEY> \
+  --keypair ~/.config/solana/id.json --fee 0.05 --period 0 --rpc "$SOLANA_RPC"
+```
