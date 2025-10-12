@@ -78,3 +78,6 @@ automatically (via `/api/config`). No rebuild.
 ## 6. Operations
 
 - Certs auto-renew via the certbot service (12h loop).
+- `docker compose logs -f api` for indexer/heartbeat logs.
+- Update economics any time: `node scripts/admin.mjs init-config ...` (UpdateConfig), no program redeploy.
+- Reputation/window tuning: `ONLINE_WINDOW_MS`, `INDEX_INTERVAL_MS` in `.env` + `docker compose restart api`.
