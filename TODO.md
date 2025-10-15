@@ -34,3 +34,11 @@ live on mainnet:
       web.
 
 ## 4. GitHub
+
+- [ ] First push. `.gitignore` files are ready and no secrets are tracked
+      (`.env` is ignored). `git init`, commit, push to the new repo.
+
+## 5. Optional / later
+
+- [ ] Point the live site at the devnet program temporarily for click-through
+      testing (set `SOLANA_RPC` to devnet + the devnet `PROGRAM_ID`, restart api,
