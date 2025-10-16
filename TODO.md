@@ -50,3 +50,6 @@ live on mainnet:
 
 ## Reference (devnet)
 
+- Program id: `31JfwzPZMdmL36tKeGF4ccvwvywcM3rAdU2HuBNJiAHU`
+- Config PDA: `Gip5oxSKTQnGVf734kwkptjvBD3CiDVBAvaC9EM3JLv2`
+- Test handle registered: `neurotest.agent`
