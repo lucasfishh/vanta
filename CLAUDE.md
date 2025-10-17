@@ -18,3 +18,11 @@ docs/       Docs site. Vite + Tailwind static build.
 api/        NestJS: indexer, resolver, heartbeat, reputation, /rpc proxy. Postgres.
 program/    Native Rust Solana program (no Anchor). You deploy it.
 scripts/    admin.mjs (init config), smoke.mjs (devnet end to end test).
+nginx/      Edge proxy configs (bootstrap.conf, full.conf, generated active.conf).
+```
+
+## Hard rules
+
+- NO em dashes anywhere (site, docs, README, comments, commits). Use commas,
+  periods, or parentheses. This is a standing preference.
+- No gimmicky "live" / "online" blinking text or fake counters. Keep it
