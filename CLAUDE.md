@@ -34,3 +34,11 @@ nginx/      Edge proxy configs (bootstrap.conf, full.conf, generated active.conf
   together. Same for instruction tags.
 - Secrets live only in the server `.env` (gitignored). The Helius RPC key never
   reaches the browser; all client RPC goes through `/api/rpc`. Never commit keys
+  or write them into tracked files.
+
+## Build and run
+
+Local dev:
+```
+docker compose -f docker-compose.dev.yml up -d   # db + api on :4000
+cd web  && npm install && npm run dev             # :3000
