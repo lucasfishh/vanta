@@ -13,3 +13,13 @@ services:
       - pgdata-dev:/var/lib/postgresql/data
 
   api:
+    build: ./api
+    ports:
+      - "4000:4000"
+    env_file: .env
+    environment:
+      PORT: 4000
+      DATABASE_URL: postgresql://neurosync:neurosync@db:5432/neurosync
+    dns:
+      - 8.8.8.8
+    depends_on:
