@@ -13,3 +13,13 @@ services:
       timeout: 3s
       retries: 5
     restart: unless-stopped
+
+  api:
+    build: ./api
+    expose:
+      - "4000"
+    env_file: .env
+    environment:
+      PORT: 4000
+      DATABASE_URL: postgresql://neurosync:${POSTGRES_PASSWORD:-neurosync}@db:5432/neurosync
+    dns:
