@@ -23,3 +23,13 @@ pub struct Config {
 }
 
 #[derive(BorshSerialize, BorshDeserialize, Debug, Clone)]
+pub struct NameRecord {
+    pub owner: [u8; 32],
+    pub resolver: [u8; 32],
+    pub registered_at: i64,
+    pub expires_at: i64, // 0 => never expires
+    pub last_heartbeat: i64,
+    pub heartbeat_count: u64,
+    pub bump: u8,
+    pub label: String,
+    pub metadata_uri: String,
