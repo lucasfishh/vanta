@@ -8,3 +8,13 @@ pub enum NeuroError {
     #[error("Name already registered")]
     AlreadyRegistered,
     #[error("Name not registered")]
+    NotRegistered,
+    #[error("Not the owner")]
+    NotOwner,
+    #[error("Invalid PDA")]
+    InvalidPda,
+    #[error("Invalid config account")]
+    InvalidConfig,
+    #[error("Invalid treasury account")]
+    InvalidTreasury,
+    #[error("Label too long or empty")]
