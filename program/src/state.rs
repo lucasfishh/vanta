@@ -13,3 +13,13 @@ pub const MAX_LABEL_LEN: usize = 32;
 pub const MAX_URI_LEN: usize = 200;
 
 #[derive(BorshSerialize, BorshDeserialize, Debug, Clone)]
+pub struct Config {
+    pub admin: [u8; 32],
+    pub treasury: [u8; 32],
+    pub register_fee_lamports: u64,
+    pub renew_fee_lamports: u64,
+    pub period_seconds: i64,
+    pub bump: u8,
+}
+
+#[derive(BorshSerialize, BorshDeserialize, Debug, Clone)]
