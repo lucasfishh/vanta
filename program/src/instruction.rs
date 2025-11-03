@@ -23,3 +23,13 @@ pub enum NeuroInstruction {
     InitConfig(InitConfigArgs),
     /// 1. Update economics. Accounts: [admin(signer), config_pda(w)]
     UpdateConfig(InitConfigArgs),
+    /// 2. Register a name. Accounts: [payer(signer,w), name_pda(w), config_pda, treasury(w), system_program]
+    Register(RegisterArgs),
+    /// 3. Heartbeat. Accounts: [owner(signer), name_pda(w)]
+    Heartbeat,
+    /// 4. Update resolver. Accounts: [owner(signer), name_pda(w)]
+    UpdateResolver { resolver: [u8; 32] },
+    /// 5. Update metadata uri. Accounts: [owner(signer), name_pda(w)]
+    UpdateMetadata { metadata_uri: String },
+    /// 6. Transfer ownership. Accounts: [owner(signer), name_pda(w)]
+    Transfer { new_owner: [u8; 32] },
