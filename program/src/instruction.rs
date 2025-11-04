@@ -43,3 +43,13 @@ impl NeuroInstruction {
         Ok(match tag {
             0 => NeuroInstruction::InitConfig(
                 InitConfigArgs::try_from_slice(rest).map_err(|_| NeuroError::InvalidInstruction)?,
+            ),
+            1 => NeuroInstruction::UpdateConfig(
+                InitConfigArgs::try_from_slice(rest).map_err(|_| NeuroError::InvalidInstruction)?,
+            ),
+            2 => NeuroInstruction::Register(
+                RegisterArgs::try_from_slice(rest).map_err(|_| NeuroError::InvalidInstruction)?,
+            ),
+            3 => NeuroInstruction::Heartbeat,
+            4 => {
+                let resolver = <[u8; 32]>::try_from_slice(rest)
