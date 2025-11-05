@@ -53,3 +53,13 @@ impl NeuroInstruction {
             3 => NeuroInstruction::Heartbeat,
             4 => {
                 let resolver = <[u8; 32]>::try_from_slice(rest)
+                    .map_err(|_| NeuroError::InvalidInstruction)?;
+                NeuroInstruction::UpdateResolver { resolver }
+            }
+            5 => {
+                let metadata_uri =
+                    String::try_from_slice(rest).map_err(|_| NeuroError::InvalidInstruction)?;
+                NeuroInstruction::UpdateMetadata { metadata_uri }
+            }
+            6 => {
+                let new_owner = <[u8; 32]>::try_from_slice(rest)
