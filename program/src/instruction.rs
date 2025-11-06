@@ -68,3 +68,6 @@ impl NeuroInstruction {
             }
             7 => NeuroInstruction::Renew,
             _ => return Err(NeuroError::InvalidInstruction),
+        })
+    }
+}
