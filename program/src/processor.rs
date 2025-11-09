@@ -28,3 +28,8 @@ pub fn process(program_id: &Pubkey, accounts: &[AccountInfo], data: &[u8]) -> Pr
         NeuroInstruction::UpdateResolver { resolver } => {
             update_resolver(program_id, accounts, resolver)
         }
+        NeuroInstruction::UpdateMetadata { metadata_uri } => {
+            update_metadata(program_id, accounts, metadata_uri)
+        }
+        NeuroInstruction::Transfer { new_owner } => transfer(program_id, accounts, new_owner),
+        NeuroInstruction::Renew => renew(program_id, accounts),
