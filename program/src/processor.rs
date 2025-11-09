@@ -33,3 +33,8 @@ pub fn process(program_id: &Pubkey, accounts: &[AccountInfo], data: &[u8]) -> Pr
         }
         NeuroInstruction::Transfer { new_owner } => transfer(program_id, accounts, new_owner),
         NeuroInstruction::Renew => renew(program_id, accounts),
+    }
+}
+
+fn config_seeds(program_id: &Pubkey) -> (Pubkey, u8) {
+    Pubkey::find_program_address(&[b"config"], program_id)
