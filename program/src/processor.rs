@@ -43,3 +43,8 @@ fn config_seeds(program_id: &Pubkey) -> (Pubkey, u8) {
 fn name_seeds(program_id: &Pubkey, label: &str) -> (Pubkey, u8) {
     let h = hash(label.as_bytes());
     Pubkey::find_program_address(&[b"name", h.as_ref()], program_id)
+}
+
+fn validate_label(label: &str) -> Result<(), NeuroError> {
+    if label.is_empty() || label.len() > MAX_LABEL_LEN {
+        return Err(NeuroError::InvalidLabel);
