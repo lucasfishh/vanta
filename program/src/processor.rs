@@ -68,3 +68,8 @@ fn init_config(
     let admin = next_account_info(it)?;
     let config_ai = next_account_info(it)?;
 
+    if !admin.is_signer {
+        return Err(NeuroError::MissingSignature.into());
+    }
+    let (config_key, bump) = config_seeds(program_id);
+    if config_key != *config_ai.key {
