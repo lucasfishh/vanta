@@ -93,3 +93,8 @@ fn init_config(
                 &[&[b"config", &[bump]]],
             )?;
         }
+    } else {
+        // UpdateConfig: must already exist and admin must match.
+        let existing = Config::load(&config_ai.data.borrow()).ok_or(NeuroError::InvalidConfig)?;
+        if existing.admin != admin.key.to_bytes() {
+            return Err(NeuroError::NotOwner.into());
