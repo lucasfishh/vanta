@@ -98,3 +98,8 @@ fn init_config(
         let existing = Config::load(&config_ai.data.borrow()).ok_or(NeuroError::InvalidConfig)?;
         if existing.admin != admin.key.to_bytes() {
             return Err(NeuroError::NotOwner.into());
+        }
+    }
+
+    let cfg = Config {
+        admin: admin.key.to_bytes(),
