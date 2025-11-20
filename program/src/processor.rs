@@ -108,3 +108,8 @@ fn init_config(
         renew_fee_lamports: args.renew_fee_lamports,
         period_seconds: args.period_seconds,
         bump,
+    };
+    cfg.store(&mut config_ai.data.borrow_mut())?;
+    msg!("config set");
+    Ok(())
+}
