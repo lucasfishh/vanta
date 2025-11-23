@@ -133,3 +133,8 @@ fn register(program_id: &Pubkey, accounts: &[AccountInfo], args: RegisterArgs) -
         return Err(NeuroError::AlreadyRegistered.into());
     }
 
+    let (name_key, bump) = name_seeds(program_id, &args.label);
+    if name_key != *name_ai.key {
+        return Err(NeuroError::InvalidPda.into());
+    }
+
