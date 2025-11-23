@@ -123,3 +123,8 @@ fn register(program_id: &Pubkey, accounts: &[AccountInfo], args: RegisterArgs) -
     let system = next_account_info(it)?;
 
     if !payer.is_signer {
+        return Err(NeuroError::MissingSignature.into());
+    }
+    validate_label(&args.label)?;
+    if args.metadata_uri.len() > MAX_URI_LEN {
+        return Err(NeuroError::InvalidUri.into());
