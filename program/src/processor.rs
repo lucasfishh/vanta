@@ -158,3 +158,8 @@ fn register(program_id: &Pubkey, accounts: &[AccountInfo], args: RegisterArgs) -
     // Create the name account (program-owned, fixed space).
     let h = hash(args.label.as_bytes());
     let rent = Rent::get()?;
+    let lamports = rent.minimum_balance(NAME_ACCOUNT_SPACE);
+    invoke_signed(
+        &system_instruction::create_account(
+            payer.key,
+            name_ai.key,
