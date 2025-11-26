@@ -168,3 +168,8 @@ fn register(program_id: &Pubkey, accounts: &[AccountInfo], args: RegisterArgs) -
             program_id,
         ),
         &[payer.clone(), name_ai.clone(), system.clone()],
+        &[&[b"name", h.as_ref(), &[bump]]],
+    )?;
+
+    let now = Clock::get()?.unix_timestamp;
+    let expires_at = if cfg.period_seconds > 0 {
