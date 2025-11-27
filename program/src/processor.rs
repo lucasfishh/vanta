@@ -178,3 +178,8 @@ fn register(program_id: &Pubkey, accounts: &[AccountInfo], args: RegisterArgs) -
         0
     };
     let record = NameRecord {
+        owner: payer.key.to_bytes(),
+        resolver: args.resolver,
+        registered_at: now,
+        expires_at,
+        last_heartbeat: 0,
