@@ -193,3 +193,8 @@ fn register(program_id: &Pubkey, accounts: &[AccountInfo], args: RegisterArgs) -
     Ok(())
 }
 
+fn load_owned(name_ai: &AccountInfo, program_id: &Pubkey) -> Result<NameRecord, ProgramError> {
+    if name_ai.owner != program_id {
+        return Err(NeuroError::NotRegistered.into());
+    }
+    NameRecord::load(&name_ai.data.borrow()).ok_or(NeuroError::NotRegistered.into())
