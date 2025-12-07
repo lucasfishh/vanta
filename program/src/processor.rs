@@ -273,3 +273,8 @@ fn renew(program_id: &Pubkey, accounts: &[AccountInfo]) -> ProgramResult {
     let cfg = Config::load(&config_ai.data.borrow()).ok_or(NeuroError::InvalidConfig)?;
     if cfg.treasury != treasury.key.to_bytes() {
         return Err(NeuroError::InvalidTreasury.into());
+    }
+    let mut record = load_owned(name_ai, program_id)?;
+
+    if cfg.renew_fee_lamports > 0 {
+        invoke(
