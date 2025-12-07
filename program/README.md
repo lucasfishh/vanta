@@ -14,3 +14,7 @@ Account data is `[tag:u8][borsh struct]` where `tag` is `1` (config) or `2`
 `web/src/lib/program.js`, change all three together.
 
 ## Instructions
+
+| Tag | Name | Accounts |
+|-----|------|----------|
+| 0 | InitConfig | admin(s,w), config(w), system |
