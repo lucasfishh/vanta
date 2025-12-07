@@ -278,3 +278,8 @@ fn renew(program_id: &Pubkey, accounts: &[AccountInfo]) -> ProgramResult {
 
     if cfg.renew_fee_lamports > 0 {
         invoke(
+            &system_instruction::transfer(payer.key, treasury.key, cfg.renew_fee_lamports),
+            &[payer.clone(), treasury.clone(), system.clone()],
+        )?;
+    }
+    if cfg.period_seconds > 0 {
