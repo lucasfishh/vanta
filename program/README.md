@@ -26,3 +26,7 @@ Account data is `[tag:u8][borsh struct]` where `tag` is `1` (config) or `2`
 | 6 | Transfer | owner(s), name(w) |
 | 7 | Renew | payer(s,w), name(w), config, treasury(w), system |
 
+## Build
+
+Requires the Solana toolchain (`solana-install`) and Rust.
+
