@@ -46,3 +46,7 @@ solana program deploy target/deploy/neurosync_program.so
 ## Initialise config
 
 ```bash
+cd ../scripts && npm install
+node admin.mjs init-config \
+  --rpc https://api.mainnet-beta.solana.com \
+  --keypair ~/.config/solana/id.json \
