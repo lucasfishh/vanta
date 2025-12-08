@@ -62,3 +62,7 @@ Set on the server in `/root/neurosync/.env`, then `docker compose restart api`:
 ```
 PROGRAM_ID=<PROGRAM_ID>
 TREASURY=<TREASURY_PUBKEY>
+REGISTER_FEE_SOL=0.05
+```
+
+The site picks these up automatically via `GET /api/config`, no frontend
