@@ -34,3 +34,7 @@ Requires the Solana toolchain (`solana-install`) and Rust.
 cd program
 cargo build-sbf            # outputs target/deploy/neurosync_program.so
 ```
+
+## Deploy (mainnet)
+
+```bash
