@@ -22,3 +22,7 @@ Account data is `[tag:u8][borsh struct]` where `tag` is `1` (config) or `2`
 | 2 | Register | payer(s,w), name(w), config, treasury(w), system |
 | 3 | Heartbeat | owner(s), name(w) |
 | 4 | UpdateResolver | owner(s), name(w) |
+| 5 | UpdateMetadata | owner(s), name(w) |
+| 6 | Transfer | owner(s), name(w) |
+| 7 | Renew | payer(s,w), name(w), config, treasury(w), system |
+
