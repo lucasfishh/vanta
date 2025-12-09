@@ -66,3 +66,4 @@ REGISTER_FEE_SOL=0.05
 ```
 
 The site picks these up automatically via `GET /api/config`, no frontend
+rebuild needed. Registration is disabled until `PROGRAM_ID` is set.
