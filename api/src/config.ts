@@ -23,3 +23,4 @@ export function publicConfig() {
     twitter: CONFIG.twitter,
     rpc: '/api/rpc',
   };
+}
