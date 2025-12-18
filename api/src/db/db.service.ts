@@ -38,3 +38,13 @@ export class DbService implements OnModuleInit {
         capabilities    JSONB,
         registered_at   TIMESTAMPTZ,
         expires_at      TIMESTAMPTZ,
+        last_chain_beat TIMESTAMPTZ,
+        last_seen       TIMESTAMPTZ,
+        heartbeat_count BIGINT DEFAULT 0,
+        reputation      INT DEFAULT 0,
+        description     TEXT,
+        links           JSONB,
+        updated_at      TIMESTAMPTZ DEFAULT now()
+      );
+      ALTER TABLE agents ADD COLUMN IF NOT EXISTS description TEXT;
+      ALTER TABLE agents ADD COLUMN IF NOT EXISTS links JSONB;
