@@ -48,3 +48,13 @@ export class DbService implements OnModuleInit {
       );
       ALTER TABLE agents ADD COLUMN IF NOT EXISTS description TEXT;
       ALTER TABLE agents ADD COLUMN IF NOT EXISTS links JSONB;
+      CREATE INDEX IF NOT EXISTS idx_agents_owner ON agents(owner);
+      CREATE INDEX IF NOT EXISTS idx_agents_rep   ON agents(reputation DESC);
+      CREATE INDEX IF NOT EXISTS idx_agents_seen  ON agents(last_seen DESC);
+
+      CREATE TABLE IF NOT EXISTS events (
+        id      BIGSERIAL PRIMARY KEY,
+        type    TEXT NOT NULL,
+        name    TEXT NOT NULL,
+        owner   TEXT,
+        to_addr TEXT,
