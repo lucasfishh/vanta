@@ -23,3 +23,8 @@ export function labelHash(label: string): Buffer {
 export function nametPda(programId: PublicKey, label: string): PublicKey {
   const [pda] = PublicKey.findProgramAddressSync(
     [Buffer.from('name'), labelHash(label)],
+    programId,
+  );
+  return pda;
+}
+
