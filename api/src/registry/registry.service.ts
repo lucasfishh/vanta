@@ -28,3 +28,8 @@ export class RegistryService {
     heartbeatCount?: number;
     lastSeen?: Date;
   }): number {
+    const now = Date.now();
+    const ageDays = opts.registeredAt ? (now - opts.registeredAt.getTime()) / 86400000 : 0;
+    const age = Math.min(ageDays, 90) / 90; // 0..1
+    const beats = Math.min(opts.heartbeatCount || 0, 500) / 500; // 0..1
+    let recency = 0;
