@@ -33,3 +33,8 @@ export class RegistryService {
     const age = Math.min(ageDays, 90) / 90; // 0..1
     const beats = Math.min(opts.heartbeatCount || 0, 500) / 500; // 0..1
     let recency = 0;
+    if (opts.lastSeen) {
+      const dt = now - opts.lastSeen.getTime();
+      if (dt < CONFIG.onlineWindowMs) recency = 1;
+      else if (dt < 3600000) recency = 0.6;
+      else if (dt < 86400000) recency = 0.3;
