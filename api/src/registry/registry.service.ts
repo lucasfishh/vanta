@@ -48,3 +48,8 @@ export class RegistryService {
     name: string;
     pda: string;
     owner: string;
+    resolver: string;
+    metadataUri: string;
+    registeredAt: Date;
+    expiresAt: Date | null;
+    lastChainBeat: Date | null;
