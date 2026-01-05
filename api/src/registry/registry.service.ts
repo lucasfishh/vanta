@@ -53,3 +53,8 @@ export class RegistryService {
     registeredAt: Date;
     expiresAt: Date | null;
     lastChainBeat: Date | null;
+    heartbeatCount: number;
+  }) {
+    const lastSeen = a.lastChainBeat;
+    const reputation = this.computeReputation({
+      registeredAt: a.registeredAt,
