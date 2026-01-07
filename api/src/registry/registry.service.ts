@@ -73,3 +73,8 @@ export class RegistryService {
          reputation=EXCLUDED.reputation, updated_at=now()`,
       [
         a.name, a.pda, a.owner, a.resolver, a.metadataUri,
+        a.registeredAt, a.expiresAt, a.lastChainBeat, a.heartbeatCount, reputation,
+      ],
+    );
+  }
+
