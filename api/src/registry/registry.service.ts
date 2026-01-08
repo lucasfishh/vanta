@@ -83,3 +83,8 @@ export class RegistryService {
       `UPDATE agents SET last_seen = now(),
          reputation = LEAST(100, reputation + 1), updated_at = now()
        WHERE name = $1`,
+      [name],
+    );
+  }
+
+  async recordEvent(type: string, name: string, owner?: string, tx?: string, to?: string) {
