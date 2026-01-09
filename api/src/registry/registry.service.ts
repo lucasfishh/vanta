@@ -108,3 +108,8 @@ export class RegistryService {
   }
 
   async explore(params: { q?: string; sort?: string; filter?: string; limit?: number }) {
+    const limit = Math.min(Number(params.limit) || 60, 200);
+    const where: string[] = [];
+    const args: any[] = [];
+    if (params.q) {
+      args.push(`%${normalizeName(params.q)}%`);
