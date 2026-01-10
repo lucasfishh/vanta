@@ -113,3 +113,8 @@ export class RegistryService {
     const args: any[] = [];
     if (params.q) {
       args.push(`%${normalizeName(params.q)}%`);
+      where.push(`name LIKE $${args.length}`);
+    }
+    if (params.filter === 'online') {
+      args.push(CONFIG.onlineWindowMs);
+      where.push(`last_seen > now() - ($${args.length} || ' milliseconds')::interval`);
