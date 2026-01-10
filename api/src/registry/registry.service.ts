@@ -118,3 +118,8 @@ export class RegistryService {
     if (params.filter === 'online') {
       args.push(CONFIG.onlineWindowMs);
       where.push(`last_seen > now() - ($${args.length} || ' milliseconds')::interval`);
+    }
+    const order =
+      params.sort === 'recent'
+        ? 'registered_at DESC NULLS LAST'
+        : params.sort === 'active'
