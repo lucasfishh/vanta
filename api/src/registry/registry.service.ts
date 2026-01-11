@@ -133,3 +133,8 @@ export class RegistryService {
     const items = r.rows.map((row) => ({
       name: row.name,
       owner: row.owner,
+      category: row.category,
+      reputation: row.reputation,
+      lastSeen: row.last_seen,
+    }));
+    return { items, total: items.length };
