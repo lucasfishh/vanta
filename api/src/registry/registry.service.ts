@@ -128,3 +128,8 @@ export class RegistryService {
     args.push(limit);
     const sql = `SELECT name, owner, category, reputation, last_seen
                  FROM agents ${where.length ? 'WHERE ' + where.join(' AND ') : ''}
+                 ORDER BY ${order} LIMIT $${args.length}`;
+    const r = await this.db.query(sql, args);
+    const items = r.rows.map((row) => ({
+      name: row.name,
+      owner: row.owner,
