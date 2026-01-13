@@ -148,3 +148,8 @@ export class RegistryService {
 
     let capabilities = row.capabilities || [];
     let category = row.category || null;
+    let description = row.description || null;
+    let links = row.links || null;
+    // Lazily hydrate capabilities/category/links from the off-chain manifest.
+    if ((!capabilities || !capabilities.length) && row.metadata_uri) {
+      const manifest = await this.fetchManifest(row.metadata_uri);
