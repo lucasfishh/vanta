@@ -168,3 +168,8 @@ export class RegistryService {
           [name, JSON.stringify(capabilities), category, description, JSON.stringify(links)],
         );
       }
+    }
+
+    return {
+      name: row.name,
+      owner: row.owner,
