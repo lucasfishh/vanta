@@ -173,3 +173,8 @@ export class RegistryService {
     return {
       name: row.name,
       owner: row.owner,
+      resolver: row.resolver,
+      metadataUri: row.metadata_uri,
+      category,
+      capabilities,
+      description,
