@@ -178,3 +178,8 @@ export class RegistryService {
       category,
       capabilities,
       description,
+      links: links || { twitter: null, github: null, website: null, endpoint: null },
+      registeredAt: row.registered_at,
+      expiresAt: row.expires_at,
+      lastSeen: row.last_seen,
+      heartbeatCount: Number(row.heartbeat_count || 0),
