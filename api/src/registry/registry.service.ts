@@ -193,3 +193,8 @@ export class RegistryService {
     return { name: a.name, owner: a.owner, resolver: a.resolver, metadataUri: a.metadataUri };
   }
 
+  async reverse(wallet: string) {
+    const r = await this.db.query(
+      `SELECT name FROM agents WHERE owner=$1 ORDER BY reputation DESC, registered_at ASC LIMIT 1`,
+      [wallet],
+    );
