@@ -183,3 +183,8 @@ export class RegistryService {
       expiresAt: row.expires_at,
       lastSeen: row.last_seen,
       heartbeatCount: Number(row.heartbeat_count || 0),
+      reputation: row.reputation,
+    };
+  }
+
+  async resolve(raw: string) {
