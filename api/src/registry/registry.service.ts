@@ -203,3 +203,8 @@ export class RegistryService {
 
   async namesOf(wallet: string) {
     const r = await this.db.query(
+      `SELECT name, reputation, last_seen FROM agents WHERE owner=$1 ORDER BY registered_at ASC`,
+      [wallet],
+    );
+    return { wallet, names: r.rows };
+  }
