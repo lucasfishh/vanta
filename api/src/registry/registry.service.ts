@@ -198,3 +198,8 @@ export class RegistryService {
       `SELECT name FROM agents WHERE owner=$1 ORDER BY reputation DESC, registered_at ASC LIMIT 1`,
       [wallet],
     );
+    return { wallet, primary: r.rows[0]?.name || null };
+  }
+
+  async namesOf(wallet: string) {
+    const r = await this.db.query(
