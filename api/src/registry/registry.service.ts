@@ -218,3 +218,8 @@ export class RegistryService {
     const day = await this.db.query(
       `SELECT count(*)::int c FROM agents WHERE registered_at > now() - interval '24 hours'`,
     );
+    return {
+      total: total.rows[0].c,
+      online: online.rows[0].c,
+      registrations24h: day.rows[0].c,
+    };
