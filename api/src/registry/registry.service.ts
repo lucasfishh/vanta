@@ -223,3 +223,8 @@ export class RegistryService {
       online: online.rows[0].c,
       registrations24h: day.rows[0].c,
     };
+  }
+
+  async activity(limit: number) {
+    const r = await this.db.query(
+      `SELECT e.type, e.name, e.owner, e.to_addr, e.tx, e.ts
