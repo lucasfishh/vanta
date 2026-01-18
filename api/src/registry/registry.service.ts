@@ -213,3 +213,8 @@ export class RegistryService {
     const total = await this.db.query(`SELECT count(*)::int c FROM agents`);
     const online = await this.db.query(
       `SELECT count(*)::int c FROM agents WHERE last_seen > now() - ($1 || ' milliseconds')::interval`,
+      [CONFIG.onlineWindowMs],
+    );
+    const day = await this.db.query(
+      `SELECT count(*)::int c FROM agents WHERE registered_at > now() - interval '24 hours'`,
+    );
