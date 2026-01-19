@@ -248,3 +248,8 @@ export class RegistryService {
       const url = uri.startsWith('ipfs://')
         ? uri.replace('ipfs://', 'https://ipfs.io/ipfs/')
         : uri;
+      const ctrl = new AbortController();
+      const t = setTimeout(() => ctrl.abort(), 4000);
+      const res = await fetch(url, { signal: ctrl.signal });
+      clearTimeout(t);
+      if (!res.ok) return null;
