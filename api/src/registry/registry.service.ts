@@ -258,3 +258,4 @@ export class RegistryService {
       return null;
     }
   }
+}
