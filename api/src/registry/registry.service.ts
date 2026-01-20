@@ -253,3 +253,8 @@ export class RegistryService {
       const res = await fetch(url, { signal: ctrl.signal });
       clearTimeout(t);
       if (!res.ok) return null;
+      return await res.json();
+    } catch {
+      return null;
+    }
+  }
