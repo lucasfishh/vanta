@@ -13,3 +13,8 @@ export class RegistryController {
   @Get('explore')
   explore(
     @Query('q') q: string,
+    @Query('sort') sort: string,
+    @Query('filter') filter: string,
+    @Query('limit') limit: string,
+  ) {
+    return this.registry.explore({ q, sort, filter, limit: Number(limit) });
