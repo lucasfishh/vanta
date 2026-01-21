@@ -18,3 +18,8 @@ export class RegistryController {
     @Query('limit') limit: string,
   ) {
     return this.registry.explore({ q, sort, filter, limit: Number(limit) });
+  }
+
+  @Get('stats')
+  stats() {
+    return this.registry.stats();
