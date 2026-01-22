@@ -28,3 +28,8 @@ export class RegistryController {
   @Get('activity')
   activity(@Query('limit') limit: string) {
     return this.registry.activity(Number(limit) || 40);
+  }
+
+  @Get('resolve/:name')
+  async resolve(@Param('name') name: string) {
+    const r = await this.registry.resolve(name);
