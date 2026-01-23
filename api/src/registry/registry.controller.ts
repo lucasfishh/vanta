@@ -43,3 +43,8 @@ export class RegistryController {
   }
 
   @Get('names/:wallet')
+  names(@Param('wallet') wallet: string) {
+    return this.registry.namesOf(wallet);
+  }
+
+  @Get('agent/:name')
