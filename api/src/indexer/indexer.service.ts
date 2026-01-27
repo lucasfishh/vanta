@@ -18,3 +18,8 @@ function decodeNameRecord(data: Buffer) {
   const heartbeatCount = Number(data.readBigUInt64LE(o)); o += 8;
   o += 1; // bump
   const labelLen = data.readUInt32LE(o); o += 4;
+  const label = data.subarray(o, o + labelLen).toString('utf8'); o += labelLen;
+  let metadataUri = '';
+  if (o + 4 <= data.length) {
+    const mLen = data.readUInt32LE(o); o += 4;
+    metadataUri = data.subarray(o, o + mLen).toString('utf8');
