@@ -48,3 +48,8 @@ export class IndexerService implements OnModuleInit {
 
   async onModuleInit() {
     if (!CONFIG.programId) {
+      this.log.warn('PROGRAM_ID not set, running in pre-launch mode (no indexing).');
+      return;
+    }
+    this.conn = new Connection(CONFIG.solanaRpc, 'confirmed');
+    // Seed known-names so we do not emit REGISTER for pre-existing rows on boot.
