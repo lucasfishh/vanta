@@ -58,3 +58,8 @@ export class IndexerService implements OnModuleInit {
       this.knownNames.add(r.name);
       this.beatCounts.set(r.name, Number(r.heartbeat_count || 0));
     }
+    this.loop();
+    this.log.log(`Indexing program ${CONFIG.programId} every ${CONFIG.indexIntervalMs}ms`);
+  }
+
+  private loop() {
