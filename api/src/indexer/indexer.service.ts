@@ -78,3 +78,8 @@ export class IndexerService implements OnModuleInit {
   async indexOnce() {
     if (this.running) return;
     this.running = true;
+    try {
+      const programId = new PublicKey(CONFIG.programId);
+      const accounts = await this.conn.getProgramAccounts(programId, { commitment: 'confirmed' });
+      for (const { pubkey, account } of accounts) {
+        const rec = decodeNameRecord(account.data as Buffer);
