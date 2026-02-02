@@ -108,3 +108,8 @@ export class IndexerService implements OnModuleInit {
           if (prevBeat > 0) await this.registry.recordEvent('HEARTBEAT', name, rec.owner);
         }
       }
+    } finally {
+      this.running = false;
+    }
+  }
+}
