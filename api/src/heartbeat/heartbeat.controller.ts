@@ -28,3 +28,8 @@ export class HeartbeatController {
     }
 
     const dbOwner = await this.registry.getOwner(name);
+    if (!dbOwner) throw new BadRequestException('Unknown handle');
+    if (dbOwner !== owner) throw new BadRequestException('Owner mismatch');
+
+    const message = `neurosync:heartbeat:${name}:${timestamp}`;
+    let ok = false;
