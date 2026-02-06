@@ -48,3 +48,4 @@ export class HeartbeatController {
     await this.registry.recordEvent('HEARTBEAT', name, owner);
     return { ok: true, name, online: true };
   }
+}
