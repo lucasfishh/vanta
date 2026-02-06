@@ -43,3 +43,8 @@ export class HeartbeatController {
       ok = false;
     }
     if (!ok) throw new BadRequestException('Invalid signature');
+
+    await this.registry.touchPresence(name);
+    await this.registry.recordEvent('HEARTBEAT', name, owner);
+    return { ok: true, name, online: true };
+  }
