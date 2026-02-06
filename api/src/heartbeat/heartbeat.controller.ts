@@ -38,3 +38,8 @@ export class HeartbeatController {
         new TextEncoder().encode(message),
         bs58.decode(signature),
         new PublicKey(owner).toBytes(),
+      );
+    } catch {
+      ok = false;
+    }
+    if (!ok) throw new BadRequestException('Invalid signature');
