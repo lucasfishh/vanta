@@ -8,3 +8,8 @@ export class RpcController {
   @Post('rpc')
   async proxy(@Body() body: any) {
     try {
+      const res = await fetch(CONFIG.solanaRpc, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+      });
