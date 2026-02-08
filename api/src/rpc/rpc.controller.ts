@@ -18,3 +18,8 @@ export class RpcController {
         return JSON.parse(text);
       } catch {
         return text;
+      }
+    } catch (e) {
+      throw new HttpException('RPC upstream error', 502);
+    }
+  }
