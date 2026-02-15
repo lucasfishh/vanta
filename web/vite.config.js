@@ -13,3 +13,12 @@ export default defineConfig({
       '/api': {
         target: process.env.API_TARGET || 'http://localhost:4000',
         changeOrigin: true,
+        rewrite: (p) => p.replace(/^\/api/, ''),
+      },
+    },
+  },
+  build: {
+    target: 'es2020',
+    chunkSizeWarningLimit: 1500,
+  },
+});
