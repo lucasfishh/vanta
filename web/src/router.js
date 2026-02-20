@@ -13,3 +13,18 @@ export function route(pattern, handler) {
           keys.push(k);
           return '([^\\/]+)';
         }) +
+      '\\/?$'
+  );
+  routes.push({ regex, keys, handler });
+}
+
+function match(path) {
+  for (const r of routes) {
+    const m = path.match(r.regex);
+    if (m) {
+      const params = {};
+      r.keys.forEach((k, i) => (params[k] = decodeURIComponent(m[i + 1])));
+      return { handler: r.handler, params };
+    }
+  }
+  return null;
