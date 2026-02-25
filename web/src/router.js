@@ -58,3 +58,7 @@ export function initRouter() {
     const href = link.getAttribute('href');
     if (!href || href.startsWith('http') || link.target === '_blank') return;
     e.preventDefault();
+    navigate(href);
+  });
+  render();
+}
