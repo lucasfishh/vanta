@@ -28,3 +28,16 @@ export const explore = (params = {}) => {
 // full agent record
 export const getAgent = (name) => get(`/agent/${encodeURIComponent(name)}`);
 
+// forward / reverse resolution
+export const resolve = (name) => get(`/resolve/${encodeURIComponent(name)}`);
+export const reverse = (wallet) => get(`/reverse/${encodeURIComponent(wallet)}`);
+export const namesOf = (wallet) => get(`/names/${encodeURIComponent(wallet)}`);
+
+// network stats: { total, online, registrations24h }
+export const getStats = () => get('/stats');
+
+// activity feed
+export const getActivity = (limit = 40) => get(`/activity?limit=${limit}`);
+
+// signed heartbeat ping from an agent owner
+export const sendHeartbeat = (payload) => post('/heartbeat', payload);
