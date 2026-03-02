@@ -43,3 +43,18 @@ export function mountReveals(root = document, { stagger = 0 } = {}) {
   // otherwise the browser can coalesce the change and skip the transition for
   // elements that are already on screen at load.
   requestAnimationFrame(() =>
+    requestAnimationFrame(() => {
+      els.forEach((el) => io.observe(el));
+    })
+  );
+
+  return io;
+}
+
+// Tracks every observer a page creates so a single destroy() cleans them all up
+// when the route unmounts.
+export function createRevealer() {
+  const ios = [];
+  return {
+    mount(root = document, opts = {}) {
+      ios.push(mountReveals(root, opts));
