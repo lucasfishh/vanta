@@ -38,3 +38,18 @@ export function deriveConfigPda() {
 export async function deriveNamePda(label) {
   const hash = await sha256(new TextEncoder().encode(label));
   return PublicKey.findProgramAddressSync([Buffer.from('name'), Buffer.from(hash)], programId());
+}
+
+export async function buildRegisterIx({ payer, label, metadataUri = '', resolver }) {
+  const cfg = getConfig();
+  const pid = programId();
+  const [namePda] = await deriveNamePda(label);
+  const [configPda] = deriveConfigPda();
+  const treasury = new PublicKey(cfg.treasury);
+  const resolverKey = new PublicKey(resolver || payer);
+
+  const data = Buffer.concat([
+    Buffer.from([IX.REGISTER]),
+    borshString(label),
+    borshString(metadataUri),
+    resolverKey.toBuffer(),
