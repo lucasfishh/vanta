@@ -48,3 +48,18 @@ class WalletService extends Emitter {
   }
 
   getFullAddress() {
+    return this.publicKey ? this.publicKey.toBase58() : null;
+  }
+
+  getIcon(name) {
+    // Each wallet adapter ships its own icon as an embedded data-URI, which
+    // always renders. Fall back to the hosted URL only if absent.
+    const a = this.supportedWallets.find((w) => w.name === name);
+    return (a && a.icon) || WALLET_ICONS[name] || null;
+  }
+
+  detected(name) {
+    const a = this.supportedWallets.find((w) => w.name === name);
+    return a && (a.readyState === WalletReadyState.Installed || a.readyState === WalletReadyState.Loadable);
+  }
+
