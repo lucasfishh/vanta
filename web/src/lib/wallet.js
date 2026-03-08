@@ -18,3 +18,18 @@ const LAST_WALLET_KEY = 'neurosync_last_wallet';
 const RPC_PROXY = `${location.origin}/api/rpc`;
 
 const WALLET_ICONS = {
+  Phantom: 'https://raw.githubusercontent.com/nicka/phantom-wallet-brand-assets/refs/heads/main/phantom-icon-purple.svg',
+  Backpack: 'https://backpack.app/assets/backpack-icon.png',
+  Solflare: 'https://solflare.com/favicon.svg',
+};
+
+class WalletService extends Emitter {
+  constructor() {
+    super();
+    this.adapter = null;
+    this.publicKey = null;
+    this.connection = new Connection(RPC_PROXY, 'confirmed');
+    this.supportedWallets = [
+      new PhantomWalletAdapter(),
+      new SolflareWalletAdapter(),
+      new BackpackWalletAdapter(),
