@@ -78,3 +78,18 @@ class WalletService extends Emitter {
     }
   }
 
+  _listen() {
+    if (!this.adapter) return;
+    this.adapter.on('connect', (pk) => {
+      this.publicKey = pk;
+      this.emit('connect', pk);
+    });
+    this.adapter.on('disconnect', () => {
+      this.publicKey = null;
+      this.adapter = null;
+      localStorage.removeItem(LAST_WALLET_KEY);
+      this.emit('disconnect');
+    });
+    this.adapter.on('error', (e) => this.emit('error', e));
+  }
+
