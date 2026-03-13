@@ -28,3 +28,18 @@ export function createFooter() {
           <div style="display:flex; flex-direction:column; gap:7px;">
             <a href="/explore" data-link class="ft-link">Explore</a>
             <a href="/register" data-link class="ft-link">Claim a handle</a>
+            <a href="/activity" data-link class="ft-link">Activity</a>
+          </div>
+        </div>
+        <div>
+          <h4 style="font-size:11px; font-weight:600; color:#3f3f46; text-transform:uppercase; letter-spacing:1.2px; margin:0 0 12px;">Resources</h4>
+          <div style="display:flex; flex-direction:column; gap:7px;">
+            <a href="${DOCS_URL}" target="_blank" rel="noopener" class="ft-link">Documentation</a>
+            <a href="${DOCS_URL}/resolver-api" target="_blank" rel="noopener" class="ft-link">Resolver API</a>
+            <a href="${X_URL}" target="_blank" rel="noopener" class="ft-link">Twitter</a>
+            <a href="${GITHUB_URL}" target="_blank" rel="noopener" class="ft-link">GitHub</a>
+          </div>
+        </div>
+      </div>
+      <div style="padding:16px 0; font-size:11px; color:#27272a;">© ${new Date().getFullYear()} NeuroSync · Solana</div>
+    </div>
