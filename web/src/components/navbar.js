@@ -33,3 +33,18 @@ export function createNavbar() {
     pointer-events: all; display: flex; align-items: center; justify-content: space-between;
     width: 100%; max-width: 72rem; padding: 10px 18px 10px 16px;
     background: rgba(10,10,14,0.78);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,0.06); border-radius: 12px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    transition: all 0.7s cubic-bezier(0.22,1,0.36,1);
+  `;
+
+  // Logo
+  const logoLink = document.createElement('a');
+  logoLink.href = '/';
+  logoLink.setAttribute('data-link', '');
+  logoLink.style.cssText = 'display:flex; align-items:center; gap:9px; cursor:pointer;';
+  logoLink.innerHTML = `
+    <img src="/logo-transparent.png" alt="NeuroSync" style="height:26px; width:26px; object-fit:contain; transition:all .7s cubic-bezier(0.22,1,0.36,1);" />
+    <span style="font-size:14px; font-weight:600; letter-spacing:1.5px; color:#f4f4f6;">NEUROSYNC</span>
+  `;
