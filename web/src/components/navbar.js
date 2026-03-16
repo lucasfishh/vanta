@@ -78,3 +78,18 @@ export function createNavbar() {
   socials.className = 'nav-desktop-links';
   socials.style.cssText = 'display:flex; align-items:center; gap:2px; margin-right:4px;';
   [
+    { href: X_URL, svg: X_SVG, title: 'X' },
+    { href: GITHUB_URL, svg: GH_SVG, title: 'GitHub' },
+  ].forEach((s) => {
+    const a = document.createElement('a');
+    a.href = s.href;
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.title = s.title;
+    a.innerHTML = s.svg;
+    a.style.cssText = 'display:flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:7px; color:#71717a; transition:all .15s;';
+    a.addEventListener('mouseenter', () => { a.style.color = '#a78bfa'; a.style.background = 'rgba(139,92,246,0.1)'; });
+    a.addEventListener('mouseleave', () => { a.style.color = '#71717a'; a.style.background = 'transparent'; });
+    socials.appendChild(a);
+  });
+
