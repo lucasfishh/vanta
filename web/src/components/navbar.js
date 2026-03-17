@@ -123,3 +123,18 @@ export function createNavbar() {
 
   // Hamburger
   const hamburger = document.createElement('button');
+  hamburger.className = 'nav-mobile-toggle';
+  hamburger.style.cssText = 'display:none; background:none; border:none; padding:4px; color:#71717a;';
+  hamburger.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>`;
+
+  right.appendChild(socials);
+  right.appendChild(claimBtn);
+  right.appendChild(connectBtn);
+  right.appendChild(hamburger);
+  nav.appendChild(logoLink);
+  nav.appendChild(linksSection);
+  nav.appendChild(right);
+  header.appendChild(nav);
+
+  // Mobile sidebar
+  const overlay = document.createElement('div');
