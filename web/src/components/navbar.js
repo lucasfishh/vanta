@@ -183,3 +183,18 @@ export function createNavbar() {
     nav.style.background = s ? 'rgba(10,10,14,0.62)' : 'rgba(10,10,14,0.78)';
   }, { passive: true });
 
+  const updateActive = () => {
+    const path = window.location.pathname;
+    linksSection.querySelectorAll('a').forEach((a) => {
+      const href = a.dataset.href;
+      const isActive = !href.startsWith('http') && (path === href || (href !== '/' && path.startsWith(href)));
+      a.classList.toggle('active', isActive);
+      a.style.color = isActive ? '#fafafa' : '#71717a';
+      const ind = a.querySelector('.nav-indicator');
+      if (ind) ind.style.transform = isActive ? 'translateX(-50%) scaleX(1)' : 'translateX(-50%) scaleX(0)';
+    });
+  };
+  new MutationObserver(updateActive).observe(document.getElementById('app'), { childList: true });
+  window.addEventListener('popstate', updateActive);
+  setTimeout(updateActive, 0);
+
