@@ -198,3 +198,5 @@ export function createNavbar() {
   window.addEventListener('popstate', updateActive);
   setTimeout(updateActive, 0);
 
+  return header;
+}
