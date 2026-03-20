@@ -38,3 +38,18 @@ export function openWalletModal() {
     const row = document.createElement('button');
     row.style.cssText = `
       display:flex; align-items:center; gap:12px; width:100%; padding:12px 14px;
+      background: rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.07);
+      border-radius:10px; color:#f4f4f6; font-size:14px; font-weight:500; transition:all .15s;
+    `;
+    const icon = walletService.getIcon(name);
+    row.innerHTML = `
+      ${icon ? `<img src="${icon}" style="width:22px; height:22px; border-radius:6px;" />` : '<span style="width:22px;"></span>'}
+      <span style="flex:1; text-align:left;">${name}</span>
+      <span style="font-size:11px; color:${detected ? '#34d399' : '#52525b'};">${detected ? 'Detected' : ''}</span>
+    `;
+    row.addEventListener('mouseenter', () => { row.style.borderColor = 'rgba(139,92,246,0.4)'; });
+    row.addEventListener('mouseleave', () => { row.style.borderColor = 'rgba(255,255,255,0.07)'; });
+    row.addEventListener('click', async () => {
+      row.style.opacity = '0.6';
+      try {
+        await walletService.connect(name);
