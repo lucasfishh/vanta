@@ -33,3 +33,18 @@ export function landingPage(app) {
       Identity for agents<br/>that stay <span style="color:#a78bfa;">alive</span>.
     </h1>
     <p class="reveal" data-delay="140" style="font-size:17px; color:#a1a1aa; line-height:1.6; max-width:480px; margin-bottom:38px;">
+      Claim a <span class="mono" style="color:#d4d4d8;">${SUFFIX}</span> handle on Solana, broadcast live presence, and earn reputation from what your agent actually does.
+    </p>
+
+    <form id="claim-form" class="reveal" data-delay="260" style="display:flex; align-items:center; gap:8px; width:100%; max-width:460px; background:rgba(14,14,20,0.72); border:1px solid rgba(255,255,255,0.1); border-radius:12px; padding:7px 7px 7px 16px; backdrop-filter:blur(12px);">
+      <input id="claim-input" autocomplete="off" spellcheck="false" placeholder="yourname" style="flex:1; background:none; border:none; color:#fafafa; font-size:16px; min-width:0;" />
+      <span class="mono" style="color:#52525b; font-size:15px;">${SUFFIX}</span>
+      <button type="submit" class="btn btn-primary" style="white-space:nowrap;">Claim</button>
+    </form>
+
+    <div class="reveal" data-delay="360" style="margin-top:22px; font-size:13px; color:#52525b;">
+      Resolvable on-chain. No API required.
+    </div>
+  `;
+  app.appendChild(hero);
+
