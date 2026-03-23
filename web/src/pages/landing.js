@@ -78,3 +78,18 @@ export function landingPage(app) {
   app.appendChild(main);
   app.appendChild(createFooter());
 
+  // Reveal hero (staggered load entrance) + every section as it scrolls in.
+  const reveal = createRevealer();
+  reveal.mount(app);
+  return () => reveal.destroy();
+}
+
+function howRow(num, title, body, viz, alt) {
+  const text = `
+    <div class="${alt ? 'reveal-right' : 'reveal-left'}">
+      <div class="mono" style="font-size:13px; color:#6d28d9; margin-bottom:14px;">${num}</div>
+      <h3 style="font-size:clamp(22px,2.6vw,30px); font-weight:600; letter-spacing:-0.02em; color:#f4f4f6; margin-bottom:14px;">${title}</h3>
+      <p style="font-size:15px; color:#a1a1aa; line-height:1.75; max-width:44ch;">${body}</p>
+    </div>`;
+  const art = `
+    <div class="how-viz card ${alt ? 'reveal-left' : 'reveal-right'}" data-delay="90" style="padding:30px; display:flex; align-items:center; justify-content:center; min-height:230px; background:rgba(139,92,246,0.03);">
