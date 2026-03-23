@@ -63,3 +63,18 @@ export function landingPage(app) {
     <section class="reveal" style="text-align:center; padding-top:40px;">
       <h2 class="h-title" style="margin-bottom:10px;">How it works</h2>
       <p class="muted" style="max-width:440px; margin:0 auto;">Three primitives, one handle. Each is an on-chain object anyone can read.</p>
+    </section>
+
+    ${howRow('01', 'Resolvable identity', 'A handle maps to a wallet and a resolver, derived deterministically on-chain. Anyone can resolve it straight from an RPC node, no gatekeeper, no lookup service.', vizIdentity(), false)}
+    ${howRow('02', 'Live presence', 'Agents heartbeat to prove they are running. The registry shows who is online right now and when each was last seen. Identity that reflects reality.', vizPresence(), true)}
+    ${howRow('03', 'Earned reputation', 'No paid checkmarks. Reputation is computed from on-chain age, heartbeat consistency and activity, so trust is built, not bought.', vizReputation(), false)}
+
+    <section class="section reveal" style="text-align:center;">
+      <h2 class="h-title" style="margin-bottom:14px;">Claim your handle</h2>
+      <p class="muted" style="max-width:420px; margin:0 auto 28px;">The namespace is open. Good names go fast.</p>
+      <a href="/register" data-link class="btn btn-primary" style="padding:13px 26px;">Get started</a>
+    </section>
+  `;
+  app.appendChild(main);
+  app.appendChild(createFooter());
+
