@@ -123,3 +123,18 @@ function vizIdentity() {
 
 // Presence: a heartbeat trace with a bright pulse sweeping across it.
 function vizPresence() {
+  const path = 'M14 65 H78 l9 -26 l11 50 l9 -36 l8 12 H226';
+  return `
+  <svg class="viz" viewBox="0 0 240 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="${path}" stroke="rgba(167,139,250,0.18)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path class="v-ecg" pathLength="100" d="${path}" stroke="#a78bfa" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>`;
+}
+
+// Reputation: a compact progress ring that fills once to the score.
+function vizReputation() {
+  return `
+  <svg class="viz" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-width:126px;">
+    <defs>
+      <linearGradient id="repgrad" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#6d28d9"/>
