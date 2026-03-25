@@ -108,3 +108,18 @@ function vizIdentity() {
   return `
   <svg class="viz" viewBox="0 0 240 130" fill="none" xmlns="http://www.w3.org/2000/svg">
     <line x1="104" y1="65" x2="160" y2="65" stroke="rgba(167,139,250,0.22)" stroke-width="2"/>
+    <rect x="4" y="46" width="100" height="38" rx="11" fill="rgba(139,92,246,0.10)" stroke="#8b5cf6" stroke-width="1.3"/>
+    <text x="54" y="70" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#c4b5fd">name.agent</text>
+    <rect x="160" y="46" width="76" height="38" rx="11" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.14)" stroke-width="1.3"/>
+    <rect x="173" y="58" width="15" height="14" rx="3" stroke="#a78bfa" stroke-width="1.5"/>
+    <path d="M173 63 h15" stroke="#a78bfa" stroke-width="1.5"/>
+    <text x="210" y="70" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#a1a1aa">wallet</text>
+    <g class="v-packet">
+      <circle cx="104" cy="65" r="9" fill="rgba(167,139,250,0.16)"/>
+      <circle cx="104" cy="65" r="4.5" fill="#a78bfa"/>
+    </g>
+  </svg>`;
+}
+
+// Presence: a heartbeat trace with a bright pulse sweeping across it.
+function vizPresence() {
