@@ -78,3 +78,13 @@ export function registerPage(app) {
       return;
     }
     if (n.length < 1) return;
+    status.innerHTML = `<span style="color:#71717a;">Checking…</span>`;
+    setAction('Checking…', true);
+    t = setTimeout(() => check(n), 300);
+  };
+  input.addEventListener('input', onInput);
+
+  async function check(n) {
+    try {
+      const res = await checkAvailability(n);
+      if (current !== n) return;
