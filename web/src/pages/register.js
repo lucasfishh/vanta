@@ -98,3 +98,13 @@ export function registerPage(app) {
         setAction('Taken', true);
       }
     } catch (e) {
+      status.innerHTML = `<span style="color:#71717a;">Registry unavailable, name lookups resume once the program is live.</span>`;
+      setAction('Unavailable', true);
+    }
+  }
+
+  function setAction(label, disabled) {
+    action.textContent = label;
+    action.disabled = disabled;
+    action.style.opacity = disabled ? '0.5' : '1';
+  }
