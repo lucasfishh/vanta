@@ -118,3 +118,13 @@ export function registerPage(app) {
         check(current);
       };
       walletService.on('connect', onConn);
+      return;
+    }
+    await doRegister(current);
+  });
+
+  async function doRegister(n) {
+    setAction('Building transaction…', true);
+    result.innerHTML = '';
+    try {
+      const payer = walletService.getFullAddress();
