@@ -138,3 +138,13 @@ export function registerPage(app) {
         </div>`;
       setTimeout(() => navigate(`/agent/${encodeURIComponent(n)}`), 1800);
     } catch (e) {
+      const msg = e.message?.includes('Program not configured')
+        ? 'On-chain program is not deployed yet. Registration opens at launch.'
+        : e.message || 'Transaction failed';
+      result.innerHTML = `<div style="font-size:13px; color:#f87171;">${escapeHtml(msg)}</div>`;
+      setAction(`Register for ${getConfig().registerFeeSol} SOL`, false);
+    }
+  }
+
+  walletService.on('connect', () => { if (current && available) check(current); });
+  if (preset) onInput();
