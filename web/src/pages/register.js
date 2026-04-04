@@ -148,3 +148,11 @@ export function registerPage(app) {
 
   walletService.on('connect', () => { if (current && available) check(current); });
   if (preset) onInput();
+
+  const reveal = createRevealer();
+  reveal.mount(wrap, { stagger: 80 });
+  return () => {
+    clearTimeout(t);
+    reveal.destroy();
+  };
+}
