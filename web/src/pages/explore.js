@@ -48,3 +48,13 @@ export function explorePage(app) {
     b.style.cssText = 'padding:9px 14px; font-size:13px;';
     b.textContent = f === 'all' ? 'All' : 'Online';
     b.dataset.f = f;
+    b.addEventListener('click', () => { filter = f; paintFilter(); run(); });
+    filterBox.appendChild(b);
+  });
+  const paintFilter = () => {
+    filterBox.querySelectorAll('button').forEach((b) => {
+      const on = b.dataset.f === filter;
+      b.style.borderColor = on ? 'rgba(139,92,246,0.5)' : 'var(--border)';
+      b.style.color = on ? '#fafafa' : 'var(--text-dim)';
+    });
+  };
