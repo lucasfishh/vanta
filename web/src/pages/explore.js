@@ -98,3 +98,13 @@ export function explorePage(app) {
         return;
       }
       empty.style.display = 'none';
+      grid.innerHTML = items.map(card).join('');
+      popIn(grid.children, 40);
+      grid.querySelectorAll('[data-name]').forEach((el) =>
+        el.addEventListener('click', () => navigate(`/agent/${el.dataset.name}`))
+      );
+    } catch (e) {
+      grid.innerHTML = '';
+      empty.style.display = 'block';
+      empty.textContent = 'Could not load the registry. Try again shortly.';
+    }
