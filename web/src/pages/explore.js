@@ -118,3 +118,13 @@ export function explorePage(app) {
     reveal.destroy();
   };
 }
+
+function card(a) {
+  const online = isOnline(a.lastSeen);
+  const rep = a.reputation ?? 0;
+  return `
+    <div class="card" data-name="${escapeHtml(a.name)}" style="padding:18px; cursor:pointer;">
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span class="${online ? 'dot-online' : 'dot-offline'}"></span>
+          <span style="font-size:11px; color:${online ? 'var(--online)' : '#52525b'};">${online ? 'online' : timeAgo(a.lastSeen)}</span>
