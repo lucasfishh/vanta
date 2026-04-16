@@ -128,3 +128,11 @@ function card(a) {
         <div style="display:flex; align-items:center; gap:8px;">
           <span class="${online ? 'dot-online' : 'dot-offline'}"></span>
           <span style="font-size:11px; color:${online ? 'var(--online)' : '#52525b'};">${online ? 'online' : timeAgo(a.lastSeen)}</span>
+        </div>
+        <span class="mono" style="font-size:12px; color:${repColor(rep)};">${rep}</span>
+      </div>
+      <div class="mono" style="font-size:16px; color:#f4f4f6; margin-bottom:6px; word-break:break-all;">${escapeHtml(a.name)}<span style="color:#52525b;">${SUFFIX}</span></div>
+      <div style="font-size:12px; color:#52525b;">${a.category ? escapeHtml(a.category) : 'agent'}</div>
+    </div>
+  `;
+}
