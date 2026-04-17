@@ -28,3 +28,13 @@ export function agentPage(app, params) {
       const notFound = String(err.message).startsWith('404');
       body.innerHTML = `
         <div class="reveal" style="text-align:center; padding:60px 0;">
+          <div class="mono" style="font-size:26px; color:#f4f4f6; margin-bottom:10px;">${escapeHtml(name)}<span style="color:#52525b;">${SUFFIX}</span></div>
+          <p class="muted" style="margin-bottom:24px;">${notFound ? 'This handle is unregistered.' : 'Could not load this handle.'}</p>
+          ${notFound ? `<a href="/register?name=${encodeURIComponent(name)}" data-link class="btn btn-primary">Claim it</a>` : ''}
+        </div>`;
+      reveal.mount(body);
+    });
+
+  return () => reveal.destroy();
+}
+
