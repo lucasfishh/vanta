@@ -108,3 +108,13 @@ function link(addr) {
 
 // A social button shown even when the agent has no link set (muted, disabled).
 function socialBtn(label, href, kind) {
+  const icons = {
+    x: '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>',
+    github: '<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.37.5 0 5.78 0 12.29c0 5.21 3.44 9.63 8.2 11.19.6.11.82-.25.82-.56v-2c-3.34.71-4.04-1.59-4.04-1.59-.55-1.37-1.34-1.74-1.34-1.74-1.09-.74.08-.72.08-.72 1.2.08 1.84 1.22 1.84 1.22 1.07 1.8 2.81 1.28 3.5.98.11-.77.42-1.28.76-1.58-2.67-.3-5.47-1.31-5.47-5.84 0-1.29.47-2.35 1.23-3.17-.12-.3-.53-1.51.12-3.15 0 0 1.01-.32 3.3 1.21a11.5 11.5 0 016.01 0c2.29-1.53 3.3-1.21 3.3-1.21.65 1.64.24 2.85.12 3.15.77.82 1.23 1.88 1.23 3.17 0 4.54-2.81 5.54-5.49 5.83.43.37.81 1.1.81 2.22v3.29c0 .31.21.68.82.56A12.01 12.01 0 0024 12.29C24 5.78 18.63.5 12 .5z"/></svg>',
+    web: '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18"/></svg>',
+  };
+  const icon = icons[kind] || '';
+  if (href) {
+    return `<a href="${escapeHtml(href)}" target="_blank" rel="noopener" title="${label}" style="display:flex; align-items:center; gap:7px; padding:8px 13px; border-radius:8px; background:rgba(139,92,246,0.1); border:1px solid rgba(139,92,246,0.2); color:#c4b5fd; font-size:13px;">${icon}${label}</a>`;
+  }
+  return `<span title="No ${label} set" style="display:flex; align-items:center; gap:7px; padding:8px 13px; border-radius:8px; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.05); color:#3f3f46; font-size:13px;">${icon}${label}</span>`;
