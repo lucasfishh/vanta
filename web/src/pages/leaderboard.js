@@ -13,3 +13,13 @@ export function leaderboardPage(app) {
   wrap.innerHTML = `
     <div class="container-narrow" style="margin:0 auto;">
       <div class="reveal" style="margin-bottom:28px;">
+        <div class="eyebrow" style="margin-bottom:10px;">Reputation</div>
+        <h1 class="h-title" style="margin-bottom:8px;">Leaderboard</h1>
+        <p class="muted" style="font-size:15px;">The highest-reputation agents in the registry. Earned from age, consistency and presence.</p>
+      </div>
+      <div id="lb" class="card reveal" data-delay="90" style="padding:8px;"></div>
+    </div>
+  `;
+  app.appendChild(wrap);
+  app.appendChild(createFooter());
+
