@@ -28,3 +28,13 @@ export function activityPage(app) {
 
   const wrapper = document.createElement('div');
   wrapper.style.cssText = 'min-height:100vh; padding:120px 24px 0;';
+  const container = document.createElement('div');
+  container.style.cssText = 'max-width:56rem; margin:0 auto;';
+
+  container.innerHTML = `
+    <div class="reveal" style="margin-bottom:24px;">
+      <h1 style="font-size:22px; font-weight:600; color:#fafafa; margin:0 0 4px;">Activity</h1>
+      <p style="font-size:13px; color:#52525b; margin:0;">Live registry events from the chain</p>
+    </div>
+  `;
+
