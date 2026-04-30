@@ -68,3 +68,13 @@ export function activityPage(app) {
   app.appendChild(wrapper);
   app.appendChild(createFooter());
 
+  const style = document.createElement('style');
+  style.textContent = '@keyframes actFadeIn{to{opacity:1; transform:translateY(0);}}';
+  app.appendChild(style);
+
+  const reveal = createRevealer();
+  reveal.mount(wrapper);
+
+  let all = [];
+  function render() {
+    feed.innerHTML = '';
