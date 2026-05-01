@@ -88,3 +88,13 @@ export function activityPage(app) {
             ctaLabel: 'Claim a handle',
             ctaHref: '/register',
           })
+        : `<div style="padding:48px; text-align:center; color:#3f3f46; font-size:13px;">No ${active.toLowerCase()} events yet.</div>`;
+      return;
+    }
+    items.forEach((d, i) => {
+      const color = COLORS[d.type] || '#fafafa';
+      const bg = BG[d.type] || 'rgba(255,255,255,0.02)';
+      const card = document.createElement('div');
+      card.style.cssText = `padding:14px 16px; border-radius:8px; background:${bg}; opacity:0; transform:translateY(4px); animation:actFadeIn .2s ease forwards; animation-delay:${Math.min(i * 0.03, 0.5)}s; cursor:pointer;`;
+      card.innerHTML = `
+        <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:4px; flex-wrap:wrap;">
