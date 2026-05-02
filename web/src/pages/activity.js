@@ -98,3 +98,13 @@ export function activityPage(app) {
       card.style.cssText = `padding:14px 16px; border-radius:8px; background:${bg}; opacity:0; transform:translateY(4px); animation:actFadeIn .2s ease forwards; animation-delay:${Math.min(i * 0.03, 0.5)}s; cursor:pointer;`;
       card.innerHTML = `
         <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:4px; flex-wrap:wrap;">
+          <span style="font-size:11px; font-weight:600; color:${color}; text-transform:uppercase; letter-spacing:0.5px;">${d.type}</span>
+          <span class="mono" style="font-size:13px; color:#e4e4e7;">${escapeHtml(d.name)}<span style="color:#52525b;">${SUFFIX}</span></span>
+          <span style="font-size:11px; color:#27272a;">${timeAgo(d.ts)}</span>
+          ${d.tx ? `<a href="https://solscan.io/tx/${d.tx}" target="_blank" rel="noopener" style="font-size:11px; color:#3f3f46; margin-left:auto;">tx ↗</a>` : ''}
+        </div>
+        <div style="font-size:13px; color:#71717a;">${eventLine(d)}</div>
+      `;
+      card.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A') return;
+        navigate(`/agent/${d.name}`);
