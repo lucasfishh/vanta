@@ -138,3 +138,11 @@ function eventLine(d) {
       return `Registered by ${shorten(d.owner)}`;
     case 'HEARTBEAT':
       return `Heartbeat from ${shorten(d.owner)}`;
+    case 'RENEW':
+      return `Renewed by ${shorten(d.owner)}`;
+    case 'TRANSFER':
+      return `Transferred to ${shorten(d.to || d.owner)}`;
+    default:
+      return `Updated by ${shorten(d.owner)}`;
+  }
+}
