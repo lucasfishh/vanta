@@ -1,0 +1,12 @@
+:root {
+  --bg: #07070a;
+  --bg-elev: #0e0e14;
+  --panel: rgba(255, 255, 255, 0.025);
+  --border: rgba(255, 255, 255, 0.07);
+  --border-strong: rgba(255, 255, 255, 0.12);
+  --text: #f4f4f6;
+  --text-dim: #a1a1aa;
+  --text-muted: #71717a;
+  --text-faint: #3f3f46;
+  --accent: #8b5cf6;
+  --accent-bright: #a78bfa;
