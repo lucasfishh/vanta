@@ -8,3 +8,13 @@ export default {
         mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
       },
       colors: {
+        background: '#08080c',
+        sidebar: '#0d0c12',
+        panel: '#14121c',
+        'panel-light': '#1b1827',
+        'primary-blue': '#a78bfa',
+        'primary-blue-light': '#c4b5fd',
+        'accent-blue': '#a78bfa',
+        'text-primary': '#f4f4f6',
+        'text-secondary': '#a1a1aa',
+        'text-muted': '#71717a',
