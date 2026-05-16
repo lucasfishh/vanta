@@ -28,3 +28,13 @@ const getDocPath = (id) => `/${id}`;
 
 const initializeMobileNav = () => {
     const trigger = document.getElementById('docs-mobile-trigger');
+    const close = document.getElementById('docs-mobile-close');
+    const overlay = document.getElementById('docs-mobile-overlay');
+    const panel = document.getElementById('docs-mobile-panel');
+
+    if (!trigger || !close || !overlay || !panel) return;
+
+    const openPanel = () => {
+        panel.classList.remove('-translate-x-full');
+        overlay.classList.remove('hidden');
+    };
