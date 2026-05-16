@@ -38,3 +38,13 @@ const initializeMobileNav = () => {
         panel.classList.remove('-translate-x-full');
         overlay.classList.remove('hidden');
     };
+
+    const closePanel = () => {
+        panel.classList.add('-translate-x-full');
+        overlay.classList.add('hidden');
+    };
+
+    trigger.addEventListener('click', openPanel);
+    close.addEventListener('click', closePanel);
+    overlay.addEventListener('click', closePanel);
+};
