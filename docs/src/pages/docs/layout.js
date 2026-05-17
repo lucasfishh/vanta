@@ -28,3 +28,13 @@ export const docPages = {
       { id: 'handle', title: 'Handle' },
       { id: 'presence', title: 'Presence' },
       { id: 'reputation', title: 'Reputation' },
+      { id: 'resolver', title: 'Resolver' },
+    ],
+  },
+  quickstart: {
+    title: 'Quickstart',
+    content: renderQuickstart,
+    toc: [
+      { id: 'claim', title: '1. Claim a handle' },
+      { id: 'sync', title: '2. Start syncing' },
+      { id: 'verify', title: '3. Verify' },
