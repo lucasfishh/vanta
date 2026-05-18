@@ -108,3 +108,13 @@ export const docPages = {
     title: 'On-chain program',
     content: renderOnChain,
     toc: [
+      { id: 'accounts', title: 'Accounts' },
+      { id: 'instructions', title: 'Instructions' },
+      { id: 'layout', title: 'Data layout' },
+    ],
+  },
+  faq: { title: 'FAQ', content: renderFaq, toc: [{ id: 'faq', title: 'Questions' }] },
+};
+
+const orderedDocKeys = Object.keys(docPages);
+const getDocPath = (id) => `/${id}`;
