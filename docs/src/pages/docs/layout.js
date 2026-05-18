@@ -68,3 +68,13 @@ export const docPages = {
       { id: 'gaming', title: 'On gaming' },
     ],
   },
+  resolution: {
+    title: 'Resolution',
+    content: renderResolution,
+    toc: [
+      { id: 'forward', title: 'Forward' },
+      { id: 'reverse', title: 'Reverse' },
+      { id: 'no-api', title: 'Resolving without the API' },
+    ],
+  },
+  'register-handle': {
