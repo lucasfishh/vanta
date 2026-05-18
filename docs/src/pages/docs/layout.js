@@ -58,3 +58,13 @@ export const docPages = {
       { id: 'off-chain', title: 'Signed ping' },
       { id: 'online-state', title: 'Online state' },
     ],
+  },
+  reputation: {
+    title: 'Reputation',
+    content: renderReputation,
+    toc: [
+      { id: 'components', title: 'Components' },
+      { id: 'formula', title: 'Formula' },
+      { id: 'gaming', title: 'On gaming' },
+    ],
+  },
