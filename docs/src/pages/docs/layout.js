@@ -178,3 +178,13 @@ function renderNavButtons(pageKey) {
       ? `<a href="${getDocPath(key)}" class="group flex flex-col gap-1 p-4 rounded-lg border border-border-color hover:border-primary-blue/50 hover:bg-panel-light transition-colors ${dir === 'next' ? 'items-end text-right' : 'items-start'}">
           <span class="text-xs text-text-muted">${dir === 'next' ? 'Next' : 'Previous'}</span>
           <span class="font-medium text-primary-blue">${docPages[key].title}</span>
+        </a>`
+      : '<div></div>';
+  return `<div class="mt-16 pt-8 border-t border-border-color grid grid-cols-1 sm:grid-cols-2 gap-4">${btn(prev, 'prev')}${btn(next, 'next')}</div>`;
+}
+
+export async function renderDocsLayout(pageId) {
+  const pageKey = docPages[pageId] ? pageId : 'introduction';
+  const page = docPages[pageKey];
+  const contentHtml = await page.content();
+
