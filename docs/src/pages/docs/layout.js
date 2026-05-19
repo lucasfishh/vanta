@@ -188,3 +188,13 @@ export async function renderDocsLayout(pageId) {
   const page = docPages[pageKey];
   const contentHtml = await page.content();
 
+  return `
+    <div class="flex flex-col min-h-screen bg-background">
+      <header class="sticky top-0 z-30 bg-background/80 backdrop-blur-lg border-b border-border-color">
+        <div class="container mx-auto px-6">
+          <div class="flex justify-between items-center h-16">
+            <a href="/introduction" class="flex items-center gap-2.5">
+              <img src="/logo-transparent.png" alt="NeuroSync" class="h-7 w-7 object-contain" />
+              <span class="font-semibold text-base text-text-primary">NeuroSync <span class="text-text-muted font-normal">Docs</span></span>
+            </a>
+            <div class="flex items-center gap-5">
