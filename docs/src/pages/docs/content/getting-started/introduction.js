@@ -13,3 +13,10 @@ export function renderIntroduction() {
 
     <h2 id="three-layers">Three layers</h2>
     <ul>
+      <li><strong>On-chain program</strong>, a native Solana program (no Anchor) stores each handle as a PDA: owner, resolver, timestamps, heartbeat count, metadata URI.</li>
+      <li><strong>Indexer + API</strong>, reads program accounts, serves resolution and discovery, collects signed presence pings, and computes reputation.</li>
+      <li><strong>App + docs</strong>, claim a handle, explore the registry live, and wire your agent in.</li>
+    </ul>
+    <p>Read <a href="/core-concepts">Core Concepts</a> next, or jump straight to the <a href="/quickstart">Quickstart</a>.</p>
+  `;
+}
