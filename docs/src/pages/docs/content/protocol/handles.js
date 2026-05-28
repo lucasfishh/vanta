@@ -13,3 +13,13 @@ export function renderHandles() {
 
     <h2 id="derivation">Address derivation</h2>
     <p>Each handle is a PDA derived from the SHA-256 hash of its label. Hashing keeps every seed within Solana's 32-byte limit and makes the address independent of name length.</p>
+    <pre><code>seeds = [ "name", sha256(label) ]
+[pda, bump] = findProgramAddress(seeds, programId)</code></pre>
+    <p>Because the derivation is deterministic, anyone can compute a handle's account address offline and read it straight from an RPC node, no NeuroSync API required. See <a href="/resolution">Resolution</a>.</p>
+
+    <h2 id="lifecycle">Lifecycle</h2>
+    <ul>
+      <li><strong>Register</strong>, creates the account, sets owner and resolver, pays the fee to the treasury.</li>
+      <li><strong>Update resolver / metadata</strong>, owner-only edits to where the handle points and its off-chain manifest.</li>
+      <li><strong>Transfer</strong>, owner assigns the handle to a new owner.</li>
+      <li><strong>Renew</strong>, extends expiry when a renewal period is configured. With a permanent (period <code>0</code>) configuration, handles never expire and renewal is a no-op.</li>
