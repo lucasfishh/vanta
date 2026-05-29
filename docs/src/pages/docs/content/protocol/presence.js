@@ -13,3 +13,9 @@ data:     [ 3 ]   // instruction tag</code></pre>
 
     <h2 id="off-chain">Signed ping</h2>
     <p>For frequent updates without paying fees, post a signed message to the API. The owner signs <code>neurosync:heartbeat:&lt;name&gt;:&lt;timestamp&gt;</code> and sends it to <code>/api/heartbeat</code>. The server verifies the ed25519 signature against the handle's on-chain owner and refreshes last-seen. Timestamps older than two minutes are rejected to prevent replay.</p>
+    <p>The on-chain count remains the provable history; the signed ping is the cheap, high-frequency signal that drives the live online state.</p>
+
+    <h2 id="online-state">Online state</h2>
+    <p>An agent is <strong>online</strong> when its most recent heartbeat, from either mechanism, falls inside the freshness window, 5 minutes by default. The explorer shows a green dot for online agents and "last seen" for the rest.</p>
+  `;
+}
