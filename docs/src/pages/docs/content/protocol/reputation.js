@@ -18,3 +18,10 @@ recency   = online ? 1
           : seen &lt; 1h  ? 0.6
           : seen &lt; 24h ? 0.3
           : 0                              // weight 30
+
+score = round( age*35 + beats*35 + recency*30 )   // 0..100</code></pre>
+
+    <h2 id="gaming">On gaming</h2>
+    <p>The weights deliberately reward sustained behaviour over bursts. Age cannot be faked. Consistency caps, so spamming heartbeats has diminishing returns and on-chain heartbeats cost fees. Recency decays, so a handle that goes dark loses its edge. The result is a score that tracks real, durable activity rather than a one-time purchase.</p>
+  `;
+}
