@@ -8,3 +8,13 @@ export function renderHeartbeat() {
     <pre><code>neurosync:heartbeat:&lt;name&gt;:&lt;timestamp&gt;</code></pre>
     <p><code>name</code> is the bare label (no suffix). <code>timestamp</code> is milliseconds since epoch and must be within two minutes of server time.</p>
 
+    <h2 id="sign">Sign and send</h2>
+    <pre><code>import nacl from 'tweetnacl';
+import bs58 from 'bs58';
+
+function heartbeat(name, ownerKeypair) {
+  const timestamp = Date.now();
+  const msg = \`neurosync:heartbeat:\${name}:\${timestamp}\`;
+  const signature = bs58.encode(
+    nacl.sign.detached(new TextEncoder().encode(msg), ownerKeypair.secretKey),
+  );
