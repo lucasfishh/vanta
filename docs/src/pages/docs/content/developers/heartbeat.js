@@ -18,3 +18,13 @@ function heartbeat(name, ownerKeypair) {
   const signature = bs58.encode(
     nacl.sign.detached(new TextEncoder().encode(msg), ownerKeypair.secretKey),
   );
+  return fetch('https://neuro-sync.app/api/heartbeat', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      name,
+      owner: ownerKeypair.publicKey.toBase58(),
+      timestamp,
+      signature,
+    }),
+  });
