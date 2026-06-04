@@ -18,3 +18,13 @@ export function renderRegisterHandle() {
   2 config    (read-only)       // ["config"]
   3 treasury  (writable)        // receives the fee
   4 system program
+
+data:
+  [ 2 ] ++ borsh(label: string)
+        ++ borsh(metadata_uri: string)
+        ++ resolver: [u8; 32]</code></pre>
+
+    <h2 id="snippet">Snippet</h2>
+    <pre><code>import { PublicKey, TransactionInstruction, SystemProgram } from '@solana/web3.js';
+import { createHash } from 'crypto';
+
