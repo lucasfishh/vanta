@@ -58,3 +58,4 @@ const ix = new TransactionInstruction({
 });</code></pre>
     <p>The app does exactly this in <code>web/src/lib/program.js</code>.</p>
   `;
+}
