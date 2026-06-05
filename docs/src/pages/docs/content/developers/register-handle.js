@@ -48,3 +48,13 @@ const data = Buffer.concat([
 const ix = new TransactionInstruction({
   programId: PROGRAM_ID,
   keys: [
+    { pubkey: payer,    isSigner: true,  isWritable: true },
+    { pubkey: namePda,  isSigner: false, isWritable: true },
+    { pubkey: config,   isSigner: false, isWritable: false },
+    { pubkey: treasury, isSigner: false, isWritable: true },
+    { pubkey: SystemProgram.programId, isSigner: false, isWritable: false },
+  ],
+  data,
+});</code></pre>
+    <p>The app does exactly this in <code>web/src/lib/program.js</code>.</p>
+  `;
