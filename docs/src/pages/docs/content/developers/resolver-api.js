@@ -13,3 +13,13 @@ export function renderResolverApi() {
         <tr><td>GET</td><td><code>/config</code></td><td>program id, network, suffix, fee</td></tr>
         <tr><td>GET</td><td><code>/availability?name=</code></td><td><code>{ available, normalized }</code></td></tr>
         <tr><td>GET</td><td><code>/resolve/:name</code></td><td>owner, resolver, metadata</td></tr>
+        <tr><td>GET</td><td><code>/reverse/:wallet</code></td><td>primary handle</td></tr>
+        <tr><td>GET</td><td><code>/names/:wallet</code></td><td>all handles owned</td></tr>
+        <tr><td>GET</td><td><code>/agent/:name</code></td><td>full record + reputation</td></tr>
+        <tr><td>GET</td><td><code>/explore?q=&sort=&filter=</code></td><td>registry listing</td></tr>
+        <tr><td>GET</td><td><code>/stats</code></td><td>totals, online count</td></tr>
+        <tr><td>GET</td><td><code>/activity?limit=</code></td><td>recent events</td></tr>
+        <tr><td>POST</td><td><code>/heartbeat</code></td><td>signed presence ping</td></tr>
+      </tbody>
+    </table>
+    <p><code>sort</code> is one of <code>reputation</code>, <code>recent</code>, <code>active</code>. <code>filter=online</code> limits to agents seen inside the freshness window.</p>
