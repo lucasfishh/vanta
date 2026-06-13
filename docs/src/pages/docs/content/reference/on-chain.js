@@ -28,3 +28,8 @@ export function renderOnChain() {
     <h2 id="layout">Data layout</h2>
     <p>The name record, after the tag byte, in declaration order:</p>
     <pre><code>owner           : [u8; 32]
+resolver        : [u8; 32]
+registered_at   : i64        // unix seconds
+expires_at      : i64        // 0 = never
+last_heartbeat  : i64
+heartbeat_count : u64
