@@ -33,3 +33,8 @@ registered_at   : i64        // unix seconds
 expires_at      : i64        // 0 = never
 last_heartbeat  : i64
 heartbeat_count : u64
+bump            : u8
+label           : string     // u32 len + utf8
+metadata_uri    : string     // u32 len + utf8</code></pre>
+    <p>All integers are little-endian. The same layout is decoded by the indexer (<code>api/src/indexer</code>) and produced by the on-chain program (<code>program/src/state.rs</code>). Change them together.</p>
+  `;
