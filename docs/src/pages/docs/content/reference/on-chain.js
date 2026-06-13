@@ -13,3 +13,13 @@ export function renderOnChain() {
     <h2 id="instructions">Instructions</h2>
     <table>
       <thead><tr><th>Tag</th><th>Name</th><th>Signer</th></tr></thead>
+      <tbody>
+        <tr><td>0</td><td>InitConfig</td><td>admin</td></tr>
+        <tr><td>1</td><td>UpdateConfig</td><td>admin</td></tr>
+        <tr><td>2</td><td>Register</td><td>payer</td></tr>
+        <tr><td>3</td><td>Heartbeat</td><td>owner</td></tr>
+        <tr><td>4</td><td>UpdateResolver</td><td>owner</td></tr>
+        <tr><td>5</td><td>UpdateMetadata</td><td>owner</td></tr>
+        <tr><td>6</td><td>Transfer</td><td>owner</td></tr>
+        <tr><td>7</td><td>Renew</td><td>payer</td></tr>
+      </tbody>
