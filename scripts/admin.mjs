@@ -58,3 +58,8 @@ function i64le(n) {
 
 async function initConfig() {
   if (!args.keypair) throw new Error('--keypair required');
+  if (!args.program) throw new Error('--program <PROGRAM_ID> required');
+  if (!args.treasury) throw new Error('--treasury <PUBKEY> required');
+  const admin = loadKeypair(args.keypair);
+  const programId = new PublicKey(args.program);
+  const treasury = new PublicKey(args.treasury);
