@@ -53,3 +53,8 @@ function u64le(n) {
 function i64le(n) {
   const b = Buffer.alloc(8);
   b.writeBigInt64LE(BigInt(Math.round(n)));
+  return b;
+}
+
+async function initConfig() {
+  if (!args.keypair) throw new Error('--keypair required');
