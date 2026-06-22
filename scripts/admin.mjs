@@ -113,3 +113,8 @@ async function info() {
   // layout after tag: admin(32) treasury(32) fee(8) renew(8) period(8) bump(1)
   o = 1;
   const admin = new PublicKey(d.subarray(o, o + 32)); o += 32;
+  const treas = new PublicKey(d.subarray(o, o + 32)); o += 32;
+  const fee = Number(d.readBigUInt64LE(o)); o += 8;
+  const renew = Number(d.readBigUInt64LE(o)); o += 8;
+  const period = Number(d.readBigInt64LE(o)); o += 8;
+  console.log(`Config ${config.toBase58()}`);
