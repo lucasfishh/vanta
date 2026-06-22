@@ -108,3 +108,8 @@ async function info() {
   const acc = await conn.getAccountInfo(config);
   if (!acc) return console.log('Config PDA not initialised.');
   const d = acc.data;
+  let o = 1;
+  const treasury = new PublicKey(d.subarray(o, o + 32)); o += 32 + 32; // skip admin? layout: admin,treasury
+  // layout after tag: admin(32) treasury(32) fee(8) renew(8) period(8) bump(1)
+  o = 1;
+  const admin = new PublicKey(d.subarray(o, o + 32)); o += 32;
