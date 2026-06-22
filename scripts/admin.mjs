@@ -103,3 +103,8 @@ async function initConfig() {
 
 async function info() {
   if (!args.program) throw new Error('--program <PROGRAM_ID> required');
+  const programId = new PublicKey(args.program);
+  const [config] = configPda(programId);
+  const acc = await conn.getAccountInfo(config);
+  if (!acc) return console.log('Config PDA not initialised.');
+  const d = acc.data;
