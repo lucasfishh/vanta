@@ -98,3 +98,8 @@ async function initConfig() {
   console.log(`  fee      : ${fee / LAMPORTS_PER_SOL} SOL`);
   console.log(`  renew    : ${renew / LAMPORTS_PER_SOL} SOL`);
   console.log(`  period   : ${period}s ${period === 0 ? '(permanent)' : ''}`);
+  console.log(`  tx       : ${sig}`);
+}
+
+async function info() {
+  if (!args.program) throw new Error('--program <PROGRAM_ID> required');
