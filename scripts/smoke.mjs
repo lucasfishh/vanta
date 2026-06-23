@@ -18,3 +18,8 @@ import {
   sendAndConfirmTransaction,
 } from '@solana/web3.js';
 
+const args = parse(process.argv.slice(2));
+const RPC = args.rpc || 'https://api.devnet.solana.com';
+const conn = new Connection(RPC, 'confirmed');
+const payer = Keypair.fromSecretKey(bs58.decode(args.secret));
+const programId = new PublicKey(args.program);
