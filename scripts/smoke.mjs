@@ -23,3 +23,8 @@ const RPC = args.rpc || 'https://api.devnet.solana.com';
 const conn = new Connection(RPC, 'confirmed');
 const payer = Keypair.fromSecretKey(bs58.decode(args.secret));
 const programId = new PublicKey(args.program);
+const treasury = new PublicKey(args.treasury || payer.publicKey.toBase58());
+const label = (args.name || 'testagent').toLowerCase();
+
+function parse(argv) {
+  const o = {};
