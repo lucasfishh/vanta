@@ -128,3 +128,7 @@ async function info() {
 const commands = { 'init-config': initConfig, info };
 (commands[cmd] || (() => {
   console.log('Commands: init-config, info');
+}))().catch((e) => {
+  console.error('Error:', e.message);
+  process.exit(1);
+});
