@@ -48,3 +48,8 @@ function decodeName(data) {
   let o = 1;
   const owner = new PublicKey(data.subarray(o, o + 32)); o += 32;
   const resolver = new PublicKey(data.subarray(o, o + 32)); o += 32;
+  const registeredAt = Number(data.readBigInt64LE(o)); o += 8;
+  const expiresAt = Number(data.readBigInt64LE(o)); o += 8;
+  const lastBeat = Number(data.readBigInt64LE(o)); o += 8;
+  const beats = Number(data.readBigUInt64LE(o)); o += 8;
+  o += 1;
