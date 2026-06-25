@@ -93,3 +93,8 @@ async function main() {
     ],
     data: Buffer.from([3]),
   });
+  const hsig = await sendAndConfirmTransaction(conn, new Transaction().add(hb), [payer]);
+  console.log(`HEARTBEAT ok ${hsig}`);
+
+  const acc = await conn.getAccountInfo(name);
+  console.log('READBACK', decodeName(acc.data));
