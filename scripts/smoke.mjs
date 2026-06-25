@@ -73,3 +73,8 @@ async function main() {
     const ix = new TransactionInstruction({
       programId,
       keys: [
+        { pubkey: payer.publicKey, isSigner: true, isWritable: true },
+        { pubkey: name, isSigner: false, isWritable: true },
+        { pubkey: configPda(), isSigner: false, isWritable: false },
+        { pubkey: treasury, isSigner: false, isWritable: true },
+        { pubkey: SystemProgram.programId, isSigner: false, isWritable: false },
