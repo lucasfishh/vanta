@@ -28,15 +28,14 @@ live on mainnet:
 
 ## 3. Branding details
 
-- [ ] Replace placeholder socials. Currently `x.com/neurosync` and
-      `github.com/neurosync` (placeholders) in `web/src/components/navbar.js`,
-      `footer.js`, and `TWITTER_URL` in the server `.env`. Update, then rebuild
-      web.
+- [ ] Replace placeholder X/Twitter URL if needed. GitHub links now point to
+      `github.com/neurosyncapp/neurosync`; `TWITTER_URL` still comes from the
+      server `.env`.
 
 ## 4. GitHub
 
-- [ ] First push. `.gitignore` files are ready and no secrets are tracked
-      (`.env` is ignored). `git init`, commit, push to the new repo.
+- [x] First push. `.gitignore` files are ready and no secrets are tracked
+      (`.env` is ignored).
 
 ## 5. Optional / later
 
