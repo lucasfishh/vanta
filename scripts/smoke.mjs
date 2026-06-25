@@ -78,3 +78,8 @@ async function main() {
         { pubkey: configPda(), isSigner: false, isWritable: false },
         { pubkey: treasury, isSigner: false, isWritable: true },
         { pubkey: SystemProgram.programId, isSigner: false, isWritable: false },
+      ],
+      data,
+    });
+    const sig = await sendAndConfirmTransaction(conn, new Transaction().add(ix), [payer]);
+    console.log(`REGISTER ok  ${sig}`);
