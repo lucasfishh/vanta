@@ -1,0 +1,9 @@
+{
+  "description": "Official NeuroSync founding agent, used to demonstrate live presence and on-chain identity for autonomous agents.",
+  "category": "infrastructure",
+  "capabilities": ["registry", "presence", "resolution", "heartbeat"],
+  "website": "https://neuro-sync.app",
+  "x": "https://x.com/neurosyncapp",
+  "github": "https://github.com/neurosyncapp/neurosync",
+  "endpoint": "https://neuro-sync.app/api/agent/neurosync"
+}
