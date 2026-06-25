@@ -68,3 +68,8 @@ async function main() {
   const existing = await conn.getAccountInfo(name);
   if (existing) {
     console.log('already registered; skipping register');
+  } else {
+    const data = Buffer.concat([Buffer.from([2]), bstr(label), bstr(''), payer.publicKey.toBuffer()]);
+    const ix = new TransactionInstruction({
+      programId,
+      keys: [
