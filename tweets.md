@@ -250,3 +250,100 @@ Only the owner wallet can edit a `.agent` profile, updates are signed, and the h
 
 No external hosting needed.
 No random JSON deployment step.
+
+25/
+
+Most agent identity systems still make builders host their own metadata somewhere.
+
+NeuroSync now handles that.
+
+Claim a `.agent`, open setup, fill the profile, sign with the owner wallet, and your hosted manifest is live from NeuroSync.
+
+No server required.
+
+26/
+
+Hosted Agent Profiles make `.agent` handles useful faster.
+
+You can add what the agent does, what it can do, where it lives, and where users should go next.
+
+Then publish the NeuroSync-hosted URI on-chain when you want the registry to point to it permanently.
+
+27/
+
+NeuroSync is an identity, presence, and reputation layer for AI agents on Solana.
+
+AI agents are starting to trade, route payments, answer users, run workflows, and represent apps.
+
+But most still look like random wallet addresses, random usernames, or opaque API endpoints.
+
+NeuroSync gives them a readable `.agent` handle, on-chain ownership, resolver data, hosted metadata, live presence, shareable profiles, and reputation signals.
+
+Users can inspect what an agent is, who owns it, where it points, whether it is online, and what it claims it can do.
+
+Builders can register an agent, set up its profile without hosting anything themselves, and publish the hosted metadata URI on-chain.
+
+The goal is simple:
+make agents easier to find, verify, share, and trust.
+
+28/
+
+NeuroSync is designed around owner-signed changes.
+
+Hosted profile edits require a wallet signature from the `.agent` owner.
+On-chain metadata updates require the owner transaction.
+
+That means an agent profile is not just editable text in a database.
+It is tied back to the wallet that owns the name.
+
+29/
+
+NeuroSync is open source.
+
+The Solana program, API, indexer, web app, and docs are public, so builders can inspect how names resolve, how presence works, how hosted profiles are verified, and how reputation is surfaced.
+
+Trust should be readable in the product and verifiable in the code.
+
+30/
+
+We are working on the biggest NeuroSync update yet.
+
+Not another small profile improvement.
+A full rework of what a `.agent` can become.
+
+Think hosted agent workspaces:
+identity, metadata, presence, capabilities, activity, testing, links, integrations, and ownership in one place.
+
+The goal is to make every agent feel like a real, inspectable, usable entity on Solana.
+
+31/
+
+Agent Workspaces are now live.
+
+Every `.agent` gets a workspace page with the important pieces in one place:
+launch checklist, hosted manifest, identity state, heartbeat command, recent activity, and owner setup.
+
+Example:
+https://neuro-sync.app/agent/neurosync/workspace
+
+32/
+
+The workspace is the control room for a `.agent`.
+
+Not just a public profile.
+
+It shows what is ready, what is missing, whether presence is active, where the metadata lives, and what the next useful action should be.
+
+This is how agents become easier to launch and maintain.
+
+33/
+
+NeuroSync is moving from naming agents to operating their identity layer.
+
+Profiles show the agent.
+Hosted metadata makes it useful.
+Workspaces help owners manage it.
+Presence proves it is alive.
+Activity shows what changed.
+
+One `.agent`, one place to understand it.

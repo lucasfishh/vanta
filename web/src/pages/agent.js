@@ -87,6 +87,7 @@ function render(body, a) {
         ${actionLink('Owner on Solscan', ownerUrl)}
         ${resolverUrl ? actionLink('Resolver on Solscan', resolverUrl) : actionButton('No resolver set', '', true)}
         ${actionLink('Set up hosted profile', `/agent/${encodeURIComponent(a.name)}/setup`, true)}
+        ${actionLink('Open workspace', `/agent/${encodeURIComponent(a.name)}/workspace`, true)}
       </div>
     </div>
 

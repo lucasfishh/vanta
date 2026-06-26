@@ -15,6 +15,7 @@ import { registerPage } from './pages/register.js';
 import { activityPage } from './pages/activity.js';
 import { leaderboardPage } from './pages/leaderboard.js';
 import { setupPage } from './pages/setup.js';
+import { workspacePage } from './pages/workspace.js';
 
 document.body.prepend(createNavbar());
 
@@ -22,6 +23,7 @@ route('/', landingPage);
 route('/explore', explorePage);
 route('/leaderboard', leaderboardPage);
 route('/agent/:name', agentPage);
+route('/agent/:name/workspace', workspacePage);
 route('/agent/:name/setup', setupPage);
 route('/register', registerPage);
 route('/activity', activityPage);

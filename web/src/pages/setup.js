@@ -76,6 +76,7 @@ export function setupPage(app, params) {
         <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:16px;">
           <button id="save" class="btn btn-primary" ${isOwner ? '' : 'disabled'} style="${isOwner ? '' : 'opacity:.5;'}">Save hosted profile</button>
           <button id="publish" class="btn btn-ghost" ${isOwner ? '' : 'disabled'} style="${isOwner ? '' : 'opacity:.5;'}">Publish hosted URI on-chain</button>
+          <a href="/agent/${encodeURIComponent(name)}/workspace" data-link class="btn btn-ghost">Open workspace</a>
           <a href="/agent/${encodeURIComponent(name)}" data-link class="btn btn-ghost">View profile</a>
         </div>
       </div>
